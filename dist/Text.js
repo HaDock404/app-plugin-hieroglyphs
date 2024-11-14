@@ -1,12 +1,5 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _react = _interopRequireDefault(require("react"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+import React from "react";
 function Text() {
-  return /*#__PURE__*/_react.default.createElement("div", null, "hello");
+  return /*#__PURE__*/React.createElement("div", null, "hello");
 }
-var _default = exports.default = Text;
+export default Text;
