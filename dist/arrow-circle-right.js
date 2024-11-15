@@ -1,3 +1,4 @@
+import React from 'react';
 function ArrowCircleRight() {
   return /*#__PURE__*/React.createElement("svg", {
     width: "auto",

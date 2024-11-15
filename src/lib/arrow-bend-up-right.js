@@ -1,3 +1,5 @@
+import React from 'react';
+
 function ArrowBendUp() {
     return (
         <svg width="auto" height="100%" viewBox="0 0 211 172" fill="none" xmlns="http://www.w3.org/2000/svg">

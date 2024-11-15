@@ -1,3 +1,4 @@
+import React from 'react';
 function ArrowBendLeftDown() {
   return /*#__PURE__*/React.createElement("svg", {
     width: "auto",
