@@ -1,5 +1,5 @@
 import React from 'react';
-function ArrowCircleUpLeft() {
+function ArrowCircleUpLeft(props) {
   return /*#__PURE__*/React.createElement("svg", {
     width: "auto",
     height: "100%",

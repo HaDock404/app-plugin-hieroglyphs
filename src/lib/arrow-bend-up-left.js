@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ArrowBendUpLeft() {
+function ArrowBendUpLeft(props) {
     return (
         <svg width="auto" height="100%" viewBox="0 0 211 172" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M84.8532 14.142C92.6637 21.9525 92.6637 34.6158 84.8532 42.4263L42.4268 84.8527C34.6163 92.6632 21.953 92.6632 14.1425 84.8527C6.33206 77.0422 6.33207 64.3789 14.1425 56.5685L56.569 14.142C64.3794 6.33156 77.0427 6.33156 84.8532 14.142Z" fill={props.color}/>

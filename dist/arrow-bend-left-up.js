@@ -1,5 +1,5 @@
 import React from 'react';
-function ArrowBendLeftUp() {
+function ArrowBendLeftUp(props) {
   return /*#__PURE__*/React.createElement("svg", {
     width: "auto",
     height: "100%",

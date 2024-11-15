@@ -1,5 +1,5 @@
 import React from 'react';
-function XCircle() {
+function XCircle(props) {
   return /*#__PURE__*/React.createElement("svg", {
     width: "auto",
     height: "a\xE0\xE0%",
