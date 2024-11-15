@@ -1,4 +1,4 @@
-function arrow_bend_up() {
+function Arrow_bend_up() {
     return (
         <svg width="auto" height="100%" viewBox="0 0 211 172" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M126.147 14.142C118.336 21.9525 118.336 34.6158 126.147 42.4263L168.573 84.8527C176.384 92.6632 189.047 92.6632 196.857 84.8527C204.668 77.0422 204.668 64.3789 196.857 56.5685L154.431 14.142C146.621 6.33156 133.957 6.33156 126.147 14.142Z" fill={props.color}/>

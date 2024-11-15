@@ -1,4 +1,4 @@
-function arrow_bend_right_down() {
+function Arrow_bend_right_down() {
     return (
         <svg width="auto" height="100%" viewBox="0 0 173 212" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_55_1072)">

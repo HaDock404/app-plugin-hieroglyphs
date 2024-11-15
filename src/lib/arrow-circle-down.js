@@ -1,4 +1,4 @@
-function arrow_circle_down() {
+function Arrow_circle_down() {
     return (
         <svg width="auto" height="100%" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_56_1317)">
