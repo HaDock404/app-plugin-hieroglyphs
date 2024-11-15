@@ -13,8 +13,8 @@ function ArrowCircleUpLeft() {
     )
 }
 
-arrow_circle_up_left.defaultProps = {
+ArrowCircleUpLeft.defaultProps = {
     color: '#1B1B1B'
 }
 
-export default arrow_circle_up_left
+export default ArrowCircleUpLeft

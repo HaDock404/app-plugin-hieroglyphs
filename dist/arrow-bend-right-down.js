@@ -31,7 +31,7 @@ function ArrowBendRightDown() {
     transform: "matrix(0 -1 -1 0 172.5 211.5)"
   }))));
 }
-arrow_bend_right_down.defaultProps = {
+ArrowBendRightDown.defaultProps = {
   color: '#1B1B1B'
 };
-export default arrow_bend_right_down;
+export default ArrowBendRightDown;

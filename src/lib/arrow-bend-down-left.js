@@ -17,8 +17,8 @@ function ArrowBendDownLeft() {
     )
 }
 
-arrow_bend_down_left.defaultProps = {
+ArrowBendDownLeft.defaultProps = {
     color: '#1B1B1B'
 }
 
-export default arrow_bend_down_left
+export default ArrowBendDownLeft

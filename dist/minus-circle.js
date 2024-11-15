@@ -20,7 +20,7 @@ function MinusCircle() {
     fill: "white"
   }))));
 }
-minus_circle.defaultProps = {
+MinusCircle.defaultProps = {
   color: '#1B1B1B'
 };
-export default minus_circle;
+export default MinusCircle;

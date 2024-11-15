@@ -22,7 +22,7 @@ function ArrowBendUpLeft() {
     fill: props.color
   }));
 }
-arrow_bend_up_left.defaultProps = {
+ArrowBendUpLeft.defaultProps = {
   color: '#1B1B1B'
 };
-export default arrow_bend_up_left;
+export default ArrowBendUpLeft;

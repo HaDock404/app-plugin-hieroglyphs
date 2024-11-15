@@ -43,7 +43,7 @@ function ArrowBendDownLeft() {
     transform: "matrix(1 0 0 -1 0 172)"
   }))));
 }
-arrow_bend_down_left.defaultProps = {
+ArrowBendDownLeft.defaultProps = {
   color: '#1B1B1B'
 };
-export default arrow_bend_down_left;
+export default ArrowBendDownLeft;

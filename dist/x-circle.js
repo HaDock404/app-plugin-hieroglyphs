@@ -20,7 +20,7 @@ function XCircle() {
     fill: "white"
   }))));
 }
-x_circle.defaultProps = {
+XCircle.defaultProps = {
   color: '#1B1B1B'
 };
-export default x_circle;
+export default XCircle;

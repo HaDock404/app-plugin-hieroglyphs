@@ -20,7 +20,7 @@ function ArrowCircleLeft() {
     fill: "white"
   }))));
 }
-arrow_circle_left.defaultProps = {
+ArrowCircleLeft.defaultProps = {
   color: '#1B1B1B'
 };
-export default arrow_circle_left;
+export default ArrowCircleLeft;

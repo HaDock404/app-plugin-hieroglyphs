@@ -19,8 +19,8 @@ function ArrowBendRightUp() {
     )
 }
 
-arrow_bend_right_up.defaultProps = {
+ArrowBendRightUp.defaultProps = {
     color: '#1B1B1B'
 }
 
-export default arrow_bend_right_up
+export default ArrowBendRightUp

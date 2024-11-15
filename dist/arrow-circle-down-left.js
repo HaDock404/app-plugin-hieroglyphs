@@ -20,7 +20,7 @@ function ArrowCircleDownLeft() {
     fill: "white"
   }))));
 }
-arrow_circle_down_left.defaultProps = {
+ArrowCircleDownLeft.defaultProps = {
   color: '#1B1B1B'
 };
-export default arrow_circle_down_left;
+export default ArrowCircleDownLeft;

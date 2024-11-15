@@ -13,8 +13,8 @@ function ArrowCircleRight() {
     )
 }
 
-arrow_circle_right.defaultProps = {
+ArrowCircleRight.defaultProps = {
     color: '#1B1B1B'
 }
 
-export default arrow_circle_right
+export default ArrowCircleRight

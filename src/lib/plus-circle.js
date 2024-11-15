@@ -13,8 +13,8 @@ function PlusCircle() {
     )
 }
 
-plus_circle.defaultProps = {
+PlusCircle.defaultProps = {
     color: '#1B1B1B'
 }
 
-export default plus_circle
+export default PlusCircle
