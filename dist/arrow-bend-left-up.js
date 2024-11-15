@@ -1,4 +1,4 @@
-function arrow_bend_left_up() {
+function ArrowBendLeftUp() {
   return /*#__PURE__*/React.createElement("svg", {
     width: "auto",
     height: "100%",

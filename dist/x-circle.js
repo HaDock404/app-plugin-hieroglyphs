@@ -1,4 +1,4 @@
-function x_circle() {
+function XCircle() {
   return /*#__PURE__*/React.createElement("svg", {
     width: "auto",
     height: "a\xE0\xE0%",

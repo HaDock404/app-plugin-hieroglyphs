@@ -1,4 +1,4 @@
-function minus_circle() {
+function MinusCircle() {
   return /*#__PURE__*/React.createElement("svg", {
     width: "auto",
     height: "100%",

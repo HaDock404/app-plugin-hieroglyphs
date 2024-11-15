@@ -1,4 +1,4 @@
-function arrow_bend_right_up() {
+function ArrowBendRightUp() {
   return /*#__PURE__*/React.createElement("svg", {
     width: "auto",
     height: "100%",

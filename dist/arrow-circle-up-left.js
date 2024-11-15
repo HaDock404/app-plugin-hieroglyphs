@@ -1,4 +1,4 @@
-function arrow_circle_up_left() {
+function ArrowCircleUpLeft() {
   return /*#__PURE__*/React.createElement("svg", {
     width: "auto",
     height: "100%",
