@@ -12,4 +12,11 @@ function ArrowBendUp({ color = '#1B1B1B' }) {
     )
 }
 
+ArrowBendUp.metadata = {
+    tags: [
+        "test",
+        "test2"
+    ]
+};
+
 export default ArrowBendUp

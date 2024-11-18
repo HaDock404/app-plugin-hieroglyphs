@@ -15,4 +15,11 @@ function ArrowCircleDownRight({ color = '#1B1B1B' }) {
     )
 }
 
+ArrowCircleDownRight.metadata = {
+    tags: [
+        "test",
+        "test2"
+    ]
+};
+
 export default ArrowCircleDownRight

@@ -38,27 +38,48 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: npm publish
 
-    - name: Création de la liste des plugins
+    - name: Génération du fichier JSON des plugins
       run: |
-        echo "Début de la génération de la liste des plugins..."
-        echo "Plugin and function list:" > plugin-list.txt
+        echo "Début de la génération du fichier JSON des plugins..."
+        output_file="plugin-list.json"
+        echo "[" > $output_file
+        id_counter=0
         for file in src/lib/*.js; do
           echo "Traitement du fichier : $file"
           if [ -f "$file" ]; then
-            # Extraction des fonctions avec gestion des fichiers sans correspondance
-            func_name=$(grep -o 'function [a-zA-Z_][a-zA-Z0-9_]*' "$file" | awk '{print $2}' || true)
+            # Extraction du nom de la fonction
+            func_name=$(grep -oP 'function \K[a-zA-Z_][a-zA-Z0-9_]*' "$file" || true)
+    
+            # Extraction des tags depuis metadata
+            tags=$(grep -Po 'tags: \[\K[^\]]*' "$file" | sed 's/, */,/g' | sed 's/"/\\"/g')
+    
+            # Génération du plugin_name à partir du nom de la fonction
+            plugin_name=$(echo "$func_name" | sed -E 's/([A-Z])/-\L\1/g' | sed 's/^-//')
+    
             if [ -n "$func_name" ]; then
-              echo "$(basename "$file"): $func_name" >> plugin-list.txt
+              if [ $id_counter -gt 0 ]; then
+                echo "," >> $output_file
+              fi
+              echo "  {" >> $output_file
+              echo "    \"id\": \"p$(printf '%04d' $id_counter)\"," >> $output_file
+              echo "    \"plugin_component\": \"$func_name\"," >> $output_file
+              echo "    \"plugin_name\": \"$plugin_name\"," >> $output_file
+              echo "    \"tags\": [$(echo $tags)]" >> $output_file
+              echo "  }" >> $output_file
+              id_counter=$((id_counter + 1))
             else
-              echo "$(basename "$file"): No function found" >> plugin-list.txt
+              echo "Aucune fonction trouvée dans $file"
             fi
           else
             echo "Pas de fichiers .js trouvés dans src/lib/"
           fi
         done
-        echo "Contenu de plugin-list.txt :"
-        cat plugin-list.txt
+        echo "]" >> $output_file
+        echo "Fichier JSON généré : $output_file"
+        echo "Contenu de $output_file :"
+        cat $output_file
       shell: bash
+    
 
     - name: Sauvegarde de plugin-list.txt
       uses: actions/upload-artifact@v3

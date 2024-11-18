@@ -15,4 +15,11 @@ function ArrowCircleRight({ color = '#1B1B1B' }) {
     )
 }
 
+ArrowCircleRight.metadata = {
+    tags: [
+        "test",
+        "test2"
+    ]
+};
+
 export default ArrowCircleRight

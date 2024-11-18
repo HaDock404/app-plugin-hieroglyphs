@@ -15,4 +15,11 @@ function ArrowCircleUp({ color = '#1B1B1B' }) {
     )
 }
 
+ArrowCircleUp.metadata = {
+    tags: [
+        "test",
+        "test2"
+    ]
+};
+
 export default ArrowCircleUp

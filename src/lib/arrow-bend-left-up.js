@@ -19,4 +19,11 @@ function ArrowBendLeftUp({ color = '#1B1B1B' }) {
     )
 }
 
+ArrowBendLeftUp.metadata = {
+    tags: [
+        "test",
+        "test2"
+    ]
+};
+
 export default ArrowBendLeftUp

@@ -6,7 +6,6 @@ import '@testing-library/jest-dom';
 
 const libPath = path.resolve(__dirname, '../lib');
 
-// Fonction pour générer dynamiquement des tests pour chaque fichier dans `src/lib`, sauf `index.js`
 fs.readdirSync(libPath).forEach((file) => {
     if (file === 'index.js' || !file.endsWith('.js')) return;
 

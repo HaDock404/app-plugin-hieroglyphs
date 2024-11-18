@@ -19,4 +19,11 @@ function ArrowBendLeftDown({ color = '#1B1B1B' }) {
     )
 }
 
+ArrowBendLeftDown.metadata = {
+    tags: [
+        "test",
+        "test2"
+    ]
+};
+
 export default ArrowBendLeftDown
