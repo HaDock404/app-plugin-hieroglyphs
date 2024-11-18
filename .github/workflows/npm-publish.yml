@@ -59,5 +59,11 @@ jobs:
         echo "Contenu de plugin-list.txt :"
         cat plugin-list.txt
       shell: bash
+
+      - name: Sauvegarde de plugin-list.txt
+      uses: actions/upload-artifact@v3
+      with:
+        name: plugin-list
+        path: plugin-list.txt
     
     
