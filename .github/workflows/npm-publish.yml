@@ -42,12 +42,11 @@ jobs:
       run: |
         echo "Début de la génération de la liste des plugins..."
         echo "Plugin and function list:" > plugin-list.txt
-        echo "Liste des fichiers dans src/lib/:"
-        ls -l src/lib/
         for file in src/lib/*.js; do
           echo "Traitement du fichier : $file"
           if [ -f "$file" ]; then
-            func_name=$(grep -o 'function [a-zA-Z_][a-zA-Z0-9_]*' "$file" | awk '{print $2}')
+            # Extraction des fonctions avec gestion des fichiers sans correspondance
+            func_name=$(grep -o 'function [a-zA-Z_][a-zA-Z0-9_]*' "$file" | awk '{print $2}' || true)
             if [ -n "$func_name" ]; then
               echo "$(basename "$file"): $func_name" >> plugin-list.txt
             else
@@ -60,4 +59,5 @@ jobs:
         echo "Contenu de plugin-list.txt :"
         cat plugin-list.txt
       shell: bash
+    
     
