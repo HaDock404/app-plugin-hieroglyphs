@@ -53,11 +53,11 @@ jobs:
     
           echo "Traitement du fichier : $file"
           if [ -f "$file" ]; then
-            # Extraction du nom de la fonction
+            # Extraction du nom de la fonction (composant)
             func_name=$(grep -oP 'function \K[a-zA-Z_][a-zA-Z0-9_]*' "$file" || true)
     
-            # Extraction des tags depuis metadata
-            tags=$(grep -Po 'tags: \[\K[^\]]*' "$file" | sed 's/, */,/g' | sed 's/"/\\"/g')
+            # Extraction des tags depuis la déclaration metadata
+            tags=$(grep -Po "$func_name\.metadata = \{\s*tags: \[\K[^\]]*" "$file" || true)
     
             # Génération du plugin_name à partir du nom de la fonction
             plugin_name=$(echo "$func_name" | sed -E 's/([A-Z])/-\L\1/g' | sed 's/^-//')
@@ -70,7 +70,7 @@ jobs:
               echo "    \"id\": \"p$(printf '%04d' $id_counter)\"," >> $output_file
               echo "    \"plugin_component\": \"$func_name\"," >> $output_file
               echo "    \"plugin_name\": \"$plugin_name\"," >> $output_file
-              echo "    \"tags\": [$(echo $tags)]" >> $output_file
+              echo "    \"tags\": [$(echo "$tags" | sed 's/, */,/g' | sed 's/"/\\"/g')]" >> $output_file
               echo "  }" >> $output_file
               id_counter=$((id_counter + 1))
             else
@@ -85,6 +85,7 @@ jobs:
         echo "Contenu de $output_file :"
         cat $output_file
       shell: bash
+    
 
     - name: Sauvegarde de plugin-list.json
       uses: actions/upload-artifact@v3
