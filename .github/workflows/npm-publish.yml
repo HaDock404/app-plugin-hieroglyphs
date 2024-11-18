@@ -60,7 +60,7 @@ jobs:
         cat plugin-list.txt
       shell: bash
 
-      - name: Sauvegarde de plugin-list.txt
+    - name: Sauvegarde de plugin-list.txt
       uses: actions/upload-artifact@v3
       with:
         name: plugin-list
