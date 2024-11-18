@@ -45,6 +45,12 @@ jobs:
         echo "[" > $output_file
         id_counter=0
         for file in src/lib/*.js; do
+          # Exclusion explicite du fichier index.js
+          if [[ $(basename "$file") == "index.js" ]]; then
+            echo "Fichier index.js ignoré."
+            continue
+          fi
+    
           echo "Traitement du fichier : $file"
           if [ -f "$file" ]; then
             # Extraction du nom de la fonction
@@ -79,12 +85,11 @@ jobs:
         echo "Contenu de $output_file :"
         cat $output_file
       shell: bash
-    
 
-    - name: Sauvegarde de plugin-list.txt
+    - name: Sauvegarde de plugin-list.json
       uses: actions/upload-artifact@v3
       with:
         name: plugin-list
-        path: plugin-list.txt
+        path: plugin-list.json
     
     
