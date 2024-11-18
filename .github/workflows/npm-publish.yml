@@ -10,51 +10,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Checkout code
-    - name: Checkout repository
+    - name: Clonage du repo
       uses: actions/checkout@v3
 
-    # 2. Setup Node.js
-    - name: Setup Node.js
+    - name: Configuration Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18'
+        node-version: '20'
         registry-url: 'https://registry.npmjs.org/'
 
-    # 3. Install dependencies
-    - name: Install dependencies
+    - name: Installation des librairies
       run: npm install
 
-    - name: Authenticate to NPM
+    - name: Authentification à npmjs.com
       run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-    # 4. Run tests
-    - name: Run tests
+    - name: Test sur les plugins
       run: npm test
 
-    # 5. Build the project
-    - name: Build project
+    - name: Construction du projet
       run: npm run build
 
-    # 6. Publish to npm
-    - name: Publish package
+    - name: Publish sur NPM
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: npm publish
 
-    # 7. Generate plugin list
-    - name: Generate plugin list
+    - name: Création de la liste des plugins
       run: |
         echo "Plugin and function list:" > plugin-list.txt
         for file in src/lib/*.js; do
-          func_name=$(grep -oP 'function \K\w+' $file)
-          echo "$(basename $file): $func_name" >> plugin-list.txt
+          if [ -f "$file" ]; then
+            func_name=$(grep -o 'function [a-zA-Z_][a-zA-Z0-9_]*' "$file" | awk '{print $2}')
+            if [ -n "$func_name" ]; then
+              echo "$(basename "$file"): $func_name" >> plugin-list.txt
+            else
+              echo "$(basename "$file"): No function found" >> plugin-list.txt
+            fi
+          else
+            echo "No .js files found in src/lib/"
+          fi
         done
         cat plugin-list.txt
-    - name: Upload plugin list as artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: plugin-list
-        path: plugin-list.txt
+      shell: bash
