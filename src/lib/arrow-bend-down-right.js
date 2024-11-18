@@ -19,11 +19,6 @@ function ArrowBendDownRight({ color = '#1B1B1B' }) {
     )
 }
 
-ArrowBendDownRight.metadata = {
-    tags: [
-        "test",
-        "test2"
-    ]
-};
+ArrowBendDownRight.metadata = { tags: ["test", "test2"]};
 
 export default ArrowBendDownRight

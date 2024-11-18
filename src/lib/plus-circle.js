@@ -15,11 +15,6 @@ function PlusCircle({ color = '#1B1B1B' }) {
     )
 }
 
-PlusCircle.metadata = {
-    tags: [
-        "test",
-        "test2"
-    ]
-};
+PlusCircle.metadata = { tags: ["test", "test2"]};
 
 export default PlusCircle

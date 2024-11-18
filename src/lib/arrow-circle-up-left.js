@@ -15,11 +15,6 @@ function ArrowCircleUpLeft({ color = '#1B1B1B' }) {
     )
 }
 
-ArrowCircleUpLeft.metadata = {
-    tags: [
-        "test",
-        "test2"
-    ]
-};
+ArrowCircleUpLeft.metadata = { tags: ["test", "test2"]};
 
 export default ArrowCircleUpLeft

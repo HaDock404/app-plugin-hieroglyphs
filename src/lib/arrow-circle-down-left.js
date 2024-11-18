@@ -15,11 +15,6 @@ function ArrowCircleDownLeft({ color = '#1B1B1B' }) {
     )
 }
 
-ArrowCircleDownLeft.metadata = {
-    tags: [
-        "test",
-        "test2"
-    ]
-};
+ArrowCircleDownLeft.metadata = { tags: ["test", "test2"]};
 
 export default ArrowCircleDownLeft

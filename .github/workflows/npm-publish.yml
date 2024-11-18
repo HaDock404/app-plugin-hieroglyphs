@@ -57,7 +57,8 @@ jobs:
             func_name=$(grep -oP 'function \K[a-zA-Z_][a-zA-Z0-9_]*' "$file" || true)
     
             # Extraction des tags depuis la déclaration metadata
-            tags=$(awk "/$func_name\.metadata = \{/ {found=1} found && /tags:/ {gsub(/.*tags: \[|].*/, \"\"); print; exit}" "$file" || true)
+            tags=$(grep "$func_name.metadata" "$file" | sed -n 's/.*tags: \[\(.*\)\].*/\1/p' || true)
+
 
 
     
@@ -72,7 +73,7 @@ jobs:
               echo "    \"id\": \"p$(printf '%04d' $id_counter)\"," >> $output_file
               echo "    \"plugin_component\": \"$func_name\"," >> $output_file
               echo "    \"plugin_name\": \"$plugin_name\"," >> $output_file
-              echo "    \"tags\": [$(echo "$tags" | sed 's/, */,/g' | sed 's/"/\\"/g')]" >> $output_file
+              echo "    \"tags\": [$tags]" >> $output_file
               echo "  }" >> $output_file
               id_counter=$((id_counter + 1))
             else

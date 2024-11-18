@@ -21,11 +21,6 @@ function ArrowBendRightUp({ color = '#1B1B1B' }) {
     )
 }
 
-ArrowBendRightUp.metadata = {
-    tags: [
-        "test",
-        "test2"
-    ]
-};
+ArrowBendRightUp.metadata = { tags: ["test", "test2"]};
 
 export default ArrowBendRightUp
