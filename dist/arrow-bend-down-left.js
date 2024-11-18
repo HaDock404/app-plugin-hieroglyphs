@@ -7,7 +7,7 @@ function ArrowBendDownLeft(props) {
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, /*#__PURE__*/React.createElement("g", {
-    "clip-path": "url(#clip0_55_1063)"
+    "clipPath": "url(#clip0_55_1063)"
   }, /*#__PURE__*/React.createElement("rect", {
     width: "100",
     height: "40",

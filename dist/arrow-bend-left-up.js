@@ -7,7 +7,7 @@ function ArrowBendLeftUp(props) {
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, /*#__PURE__*/React.createElement("g", {
-    "clip-path": "url(#clip0_55_1090)"
+    "clipPath": "url(#clip0_55_1090)"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M14.142 84.8532C21.9525 92.6637 34.6158 92.6637 42.4263 84.8532L84.8527 42.4268C92.6632 34.6163 92.6632 21.953 84.8527 14.1425C77.0422 6.33206 64.3789 6.33207 56.5685 14.1425L14.142 56.569C6.33156 64.3794 6.33156 77.0427 14.142 84.8532Z",
     fill: props.color

@@ -1,0 +1,60 @@
+name: CI/CD for NPM Plugins Hieroglyphs.io
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout code
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # 2. Setup Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        registry-url: 'https://registry.npmjs.org/'
+
+    # 3. Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    - name: Authenticate to NPM
+      run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    # 4. Run tests
+    - name: Run tests
+      run: npm test
+
+    # 5. Build the project
+    - name: Build project
+      run: npm run build
+
+    # 6. Publish to npm
+    - name: Publish package
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: npm publish
+
+    # 7. Generate plugin list
+    - name: Generate plugin list
+      run: |
+        echo "Plugin and function list:" > plugin-list.txt
+        for file in src/lib/*.js; do
+          func_name=$(grep -oP 'function \K\w+' $file)
+          echo "$(basename $file): $func_name" >> plugin-list.txt
+        done
+        cat plugin-list.txt
+    - name: Upload plugin list as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: plugin-list
+        path: plugin-list.txt

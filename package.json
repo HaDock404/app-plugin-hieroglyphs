@@ -1,6 +1,6 @@
 {
   "name": "@hieroglyphs.io/react",
-  "version": "0.1.46",
+  "version": "0.1.5",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -9,15 +9,21 @@
   "scripts": {
     "start": "react-scripts start",
     "build-examples": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
     "eject": "react-scripts eject",
     "build": "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
   },
   "devDependencies": {
     "@babel/cli": "^7.25.9",
     "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.25.9",
+    "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.25.9",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "1.0.7",
