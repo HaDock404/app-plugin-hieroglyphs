@@ -57,7 +57,8 @@ jobs:
             func_name=$(grep -oP 'function \K[a-zA-Z_][a-zA-Z0-9_]*' "$file" || true)
     
             # Extraction des tags depuis la déclaration metadata
-            tags=$(grep -Po "$func_name\.metadata = \{\s*tags: \[\K[^\]]*" "$file" | sed 's/^/"/; s/$/"/; s/, */, "/g' || true)
+            tags=$(awk "/$func_name\.metadata = \{/ {found=1} found && /tags:/ {gsub(/.*tags: \[|].*/, \"\"); print; exit}" "$file" || true)
+
 
     
             # Génération du plugin_name à partir du nom de la fonction
