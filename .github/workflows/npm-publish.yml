@@ -11,10 +11,10 @@ jobs:
 
     steps:
     - name: Clonage du repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Configuration Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
         registry-url: 'https://registry.npmjs.org/'
@@ -91,7 +91,7 @@ jobs:
     
 
     - name: Sauvegarde de plugin-list.json
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: plugin-list
         path: plugin-list.json
