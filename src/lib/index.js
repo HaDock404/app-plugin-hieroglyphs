@@ -16,6 +16,7 @@ import ArrowCircleUpRight from './arrow-circle-up-right'
 import MinusCircle from './minus-circle'
 import PlusCircle from './plus-circle'
 import XCircle from './x-circle'
+import ArrowCircleDoubleUpRight from './arrow-circle-double-up-right'
 
 export { 
     ArrowBendDownLeft,
@@ -35,5 +36,6 @@ export {
     ArrowCircleUpRight,
     MinusCircle,
     PlusCircle,
-    XCircle
+    XCircle,
+    ArrowCircleDoubleUpRight
  };
