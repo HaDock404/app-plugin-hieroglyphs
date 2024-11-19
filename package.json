@@ -1,6 +1,6 @@
 {
   "name": "@hieroglyphs.io/react",
-  "version": "0.1.66",
+  "version": "0.1.67",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
